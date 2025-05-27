@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<section class="section">
+    <div class="container">
+        <div class="yarn-detail">
+            <div class="yarn-detail-image">
+                <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+            </div>
+            
+            <div class="yarn-detail-info">
+                <h1>{{ page.title }}</h1>
+                <p class="ply">{{ page.ply }}</p>
+                
+                <p>{{ page.description }}</p>
+                
+                <div class="yarn-specs">
+                    <h3>Specifications</h3>
+                    {% if page.weight %}
+                    <div class="spec-item">
+                        <span>Weight:</span>
+                        <span>{{ page.weight }}</span>
+                    </div>
+                    {% endif %}
+                    {% if page.length %}
+                    <div class="spec-item">
+                        <span>Length:</span>
+                        <span>{{ page.length }}</span>
+                    </div>
+                    {% endif %}
+                    {% if page.fiber %}
+                    <div class="spec-item">
+                        <span>Fiber:</span>
+                        <span>{{ page.fiber }}</span>
+                    </div>
+                    {% endif %}
+                    {% if page.care %}
+                    <div class="spec-item">
+                        <span>Care:</span>
+                        <span>{{ page.care }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="content">
+                    {{ content }}
+                </div>
+                
+                <div style="margin-top: 40px;">
+                    <a href="https://your-purchasing-link.com" class="btn btn-secondary" style="font-size: 1.2rem; padding: 20px 40px;">Purchase This Yarn</a>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <a href="{{ '/yarn-collection/' | relative_url }}" class="btn btn-primary">← Back to Collection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
