@@ -1,7 +1,7 @@
 title: Woolara
 description: Luxuriously soft cashmere yarn from Inner Mongolia
-baseurl: ""
-url: "https://yourusername.github.io"
+baseurl: "/Woolara"
+url: "https://li6834300.github.io"
 
 # Build settings
 markdown: kramdown
