@@ -18,7 +18,7 @@ body {
   font-family: 'Georgia', serif;
   line-height: 1.6;
   color: var(--charcoal);
-  background-color: var(--cashmere-beige);
+  background-color: #A9b9ab;
 }
 
 .container {
@@ -69,7 +69,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  background: #7CB342;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/Woolara/assets/images/home page pic/hero-bg.png');
   background-size: cover;
   background-position: center;
   height: 80vh;
