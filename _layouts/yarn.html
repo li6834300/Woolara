@@ -62,60 +62,34 @@ layout: default
 </section>
 
 <script>
-// Color matrix configuration based on yarn types
+// Complete image matrix configuration - all available images
 const yarnColorMaps = {
     'soft-bold': {
         prefix: '4173-A3C0-E3',
-        colors: [
-            { name: 'Natural', file: '0' },
-            { name: 'Cream', file: '1' },
-            { name: 'Light Beige', file: '3' },
-            { name: 'Warm Beige', file: '4' },
-            { name: 'Soft Taupe', file: '5' },
-            { name: 'Medium Taupe', file: '6' },
-            { name: 'Rich Brown', file: '7' },
-            { name: 'Deep Brown', file: '8' },
-            { name: 'Charcoal', file: '9' },
-            { name: 'Stone Grey', file: '10' },
-            { name: 'Light Grey', file: '11' },
-            { name: 'Pearl Grey', file: '12' },
-            { name: 'Silver', file: '13' },
-            { name: 'Platinum', file: '14' },
-            { name: 'Snow White', file: '15' }
+        images: [
+            '0.jpg', '1.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg',
+            '7.png', '8.png', '9.png', '10.png', '11.png', '12.png', 
+            '13.png', '14.png', '15.png'
         ]
     },
     'everyday-luxury': {
         prefix: '4C05-941A-84',
-        colors: [
-            { name: 'Natural', file: '01' },
-            { name: 'Ivory', file: '02' },
-            { name: 'Vanilla', file: '03' },
-            { name: 'Camel', file: '04' },
-            { name: 'Biscuit', file: '05' },
-            { name: 'Mushroom', file: '06' },
-            { name: 'Cocoa', file: '08' },
-            { name: 'Mocha', file: '09' },
-            { name: 'Espresso', file: '10' },
-            { name: 'Dove Grey', file: '11' },
-            { name: 'Storm Grey', file: '12' },
-            { name: 'Charcoal', file: '13' },
-            { name: 'Slate', file: '14' },
-            { name: 'Ash', file: '15' },
-            { name: 'Pure White', file: '16' }
+        images: [
+            '01.png', '02.png', '03.png', '04.png', '05.png', '06.png',
+            '08.png', '09.png', '10.png', '11.png', '12.png', '13.png',
+            '14.png', '15.png', '16.png'
         ]
     },
     'feather-light': {
         prefix: '4930-8DE4-28',
-        colors: [
-            { name: 'Natural', file: '001' },
-            { name: 'Cream', file: '002' },
-            { name: 'Butter', file: '003' },
-            { name: 'Honey', file: '004' },
-            { name: 'Amber', file: '005' },
-            { name: 'Cognac', file: '006' },
-            { name: 'Caramel', file: '007' },
-            { name: 'Bronze', file: '008' }
+        images: [
+            '001.png', '002.png', '003.png', '004.png', '005.png', 
+            '006.png', '007.png', '008.png'
         ]
+    },
+    'supreme-edition': {
+        prefix: '4AA1-B4A5-B6',
+        images: ['0.jpeg']
     }
 };
 
@@ -125,30 +99,29 @@ function getCurrentYarnType() {
     if (path.includes('soft-bold')) return 'soft-bold';
     if (path.includes('everyday-luxury')) return 'everyday-luxury';
     if (path.includes('feather-light')) return 'feather-light';
+    if (path.includes('supreme-edition')) return 'supreme-edition';
     return 'soft-bold'; // default
 }
 
 // Populate color matrix
 function populateColorMatrix() {
     const currentYarn = getCurrentYarnType();
-    const colorData = yarnColorMaps[currentYarn];
+    const imageData = yarnColorMaps[currentYarn];
     
-    if (!colorData) return;
+    if (!imageData) return;
     
     const colorGrid = document.getElementById('colorGrid');
     colorGrid.innerHTML = '';
     
-    colorData.colors.forEach((color, index) => {
+    imageData.images.forEach((imageFile, index) => {
         const colorItem = document.createElement('div');
         colorItem.className = 'color-item';
         if (index === 0) colorItem.classList.add('active');
         
-        const imageExt = color.file.includes('.') ? '' : (currentYarn === 'soft-bold' ? '.jpg' : '.png');
-        const imagePath = `/Woolara/assets/images/yarn detail/JPEG image-${colorData.prefix}-${color.file}${imageExt}`;
+        const imagePath = `/Woolara/assets/images/yarn detail/JPEG image-${imageData.prefix}-${imageFile}`;
         
         colorItem.innerHTML = `
-            <img src="${imagePath}" alt="${color.name}" loading="lazy">
-            <span class="color-name">${color.name}</span>
+            <img src="${imagePath}" alt="Color option ${index + 1}" loading="lazy">
         `;
         
         colorItem.onclick = () => selectColor(imagePath, colorItem);
