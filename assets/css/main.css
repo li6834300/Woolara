@@ -296,10 +296,10 @@ nav a:hover {
 
 /* Story Page */
 .story-hero {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/images/our cashmere/A_photograph_captures_a_Mongolian_herder_overseein.png');
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/Woolara/assets/images/our cashmere/A_photograph_captures_a_Mongolian_herder_overseein.png');
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -307,35 +307,66 @@ nav a:hover {
   color: white;
 }
 
+.story-hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.story-hero p {
+  font-size: 1.8rem;
+  opacity: 0.9;
+}
+
 .story-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  margin-bottom: 60px;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 100px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .story-content.single-column {
   grid-template-columns: 1fr;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto 100px auto;
+}
+
+.story-section {
+  padding: 100px 0;
+}
+
+.story-section:nth-child(even) {
+  background-color: var(--cream-white);
 }
 
 .story-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 3.5rem;
+  margin-bottom: 40px;
   color: var(--charcoal);
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 .story-text p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.8;
   color: var(--olive-gray);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .story-text.center-text {
   text-align: center;
+}
+
+.story-intro {
+  font-size: 1.4rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  margin-bottom: 30px;
 }
 
 .story-image {
@@ -344,100 +375,149 @@ nav a:hover {
 
 .story-image img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
-/* Yarn Specs List */
-.yarn-specs-list {
-  margin-top: 30px;
+/* Enhanced Yarn Specs */
+.yarn-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 40px;
 }
 
 .spec-card {
-  background-color: var(--cashmere-beige);
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border-left: 4px solid var(--forest-green);
+  background: linear-gradient(135deg, var(--cashmere-beige) 0%, var(--cream-white) 100%);
+  padding: 30px;
+  border-radius: 15px;
+  border-left: 6px solid var(--forest-green);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.spec-card:hover {
+  transform: translateY(-5px);
 }
 
 .spec-card h4 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--charcoal);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .spec-card p {
   color: var(--olive-gray);
   margin-bottom: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
-/* Values List */
-.values-list {
-  margin: 30px 0;
+/* Enhanced Values Grid */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 35px;
+  margin: 50px 0;
 }
 
-.value-item {
-  margin-bottom: 25px;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--earth-taupe);
+.value-card {
+  background-color: var(--cashmere-beige);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.value-item:last-child {
-  border-bottom: none;
+.value-card:hover {
+  transform: translateY(-8px);
 }
 
-.value-item h4 {
-  font-size: 1.3rem;
+.value-card .emoji {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.value-card h4 {
+  font-size: 1.6rem;
   color: var(--charcoal);
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
 }
 
-.value-item p {
+.value-card p {
   color: var(--olive-gray);
-  margin-bottom: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
+.story-quote {
+  background: linear-gradient(135deg, var(--forest-green) 0%, var(--olive-gray) 100%);
+  color: white;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 60px 0;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.story-quote p {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Enhanced Map and Certifications */
 .map-container {
   text-align: center;
-  margin: 40px 0;
+  margin: 60px 0;
 }
 
 .map-placeholder {
   width: 100%;
-  max-width: 500px;
-  height: 250px;
-  background-color: var(--olive-gray);
-  border-radius: 10px;
+  max-width: 600px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--olive-gray) 0%, var(--forest-green) 100%);
+  border-radius: 20px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
 .certifications {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
+  gap: 30px;
+  margin-top: 60px;
   flex-wrap: wrap;
 }
 
 .cert-badge {
-  background-color: var(--cream-white);
-  padding: 10px 20px;
-  border-radius: 25px;
-  border: 2px solid var(--olive-gray);
+  background: linear-gradient(135deg, var(--cream-white) 0%, var(--cashmere-beige) 100%);
+  padding: 15px 30px;
+  border-radius: 30px;
+  border: 3px solid var(--forest-green);
   font-weight: bold;
   color: var(--charcoal);
   white-space: nowrap;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.cert-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 /* Contact Page */
@@ -650,30 +730,77 @@ footer {
     grid-template-columns: 1fr;
   }
   
+  /* Story Page Mobile */
+  .story-hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .story-hero p {
+    font-size: 1.3rem;
+  }
+  
+  .story-section {
+    padding: 60px 0;
+  }
+  
   .story-content {
     grid-template-columns: 1fr;
     gap: 40px;
+    margin-bottom: 60px;
   }
   
   .story-text h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  
+  .story-intro {
+    font-size: 1.2rem;
+  }
+  
+  .yarn-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .spec-card {
+    padding: 25px;
   }
   
   .spec-card h4 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   
-  .value-item h4 {
-    font-size: 1.1rem;
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin: 40px 0;
+  }
+  
+  .value-card {
+    padding: 30px;
+  }
+  
+  .value-card h4 {
+    font-size: 1.4rem;
+  }
+  
+  .story-quote {
+    padding: 30px;
+    margin: 40px 0;
+  }
+  
+  .story-quote p {
+    font-size: 1.2rem;
   }
   
   .certifications {
-    gap: 10px;
+    gap: 15px;
+    margin-top: 40px;
   }
   
   .cert-badge {
-    padding: 8px 15px;
-    font-size: 0.9rem;
+    padding: 12px 20px;
+    font-size: 1rem;
   }
   
   .contact-section {
