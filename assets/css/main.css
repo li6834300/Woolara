@@ -18,7 +18,7 @@ body {
   font-family: 'Georgia', serif;
   line-height: 1.6;
   color: var(--charcoal);
-  background-color: #A9b9ab;
+  background-color: var(--cashmere-beige);
 }
 
 .container {
@@ -209,10 +209,10 @@ nav a:hover {
 .yarn-card {
   background-color: var(--cashmere-beige);
   border-radius: 10px;
-  overflow: hidden;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   position: relative;
+  padding: 15px;
 }
 
 .yarn-card:hover {
@@ -221,12 +221,13 @@ nav a:hover {
 
 .yarn-card img {
   width: 100%;
-  height: 250px;
+  height: 220px;
   object-fit: cover;
+  border-radius: 8px;
 }
 
 .yarn-card-content {
-  padding: 20px;
+  padding: 15px 5px 5px 5px;
   text-align: center;
 }
 
