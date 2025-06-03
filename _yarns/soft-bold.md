@@ -1,4 +1,5 @@
 ---
+layout: yarn
 title: "A Soft & Bold"
 ply: "12-ply"
 description: "Our thickest and softest yarn, ideal for quick-to-knit projects. Perfect for chunky sweaters, blankets, and accessories that need extra warmth and comfort."

@@ -1,28 +1,27 @@
 ---
+layout: yarn
 title: "Feather Light"
 ply: "68-ply"
-description: "A fine, lightweight yarn that's great for delicate projects and summer garments. Perfect for creating elegant, breathable pieces with exceptional drape."
-image: "/assets/images/yarn detail/JPEG image-4930-8DE4-28-0.jpeg"
+description: "A fine, lightweight yarn that's great for delicate projects and summer garments. Perfect for lace work and refined detailing."
+image: "/assets/images/yarn detail/JPEG image-4930-8DE4-28-001.png"
 weight: "25g"
-length: "300m"
+length: "400m"
 fiber: "100% Inner Mongolian Cashmere"
 care: "Hand wash cold, lay flat to dry"
 ---
 
-## Delicate Elegance
+## Delicate Excellence
 
-Feather Light 68-ply is our finest yarn, perfect for creating delicate, sophisticated pieces that showcase the natural beauty of cashmere. Its lightweight construction makes it ideal for layering pieces and summer garments.
+Feather Light 68-ply yarn is our finest offering, designed for projects that require the utmost delicacy and refinement. This ultra-fine yarn creates beautifully detailed work with an incredibly soft hand.
 
-## Exceptional Fineness
+## Luxury Redefined
 
-This ultra-fine yarn allows for intricate stitch work and detailed patterns. The 68-ply construction provides strength while maintaining an incredibly soft hand feel that's perfect for next-to-skin wear.
+The fine gauge of this yarn makes it perfect for creating intricate lace patterns, delicate shawls, and lightweight garments that feel like wearing a cloud. Each strand is carefully spun to maintain strength while achieving the finest possible texture.
 
-## Perfect Applications
+## Specialized Applications
 
-- Delicate shawls and wraps
-- Summer tops and cardigans
-- Lace knitting projects
-- Fine gauge sweaters
-- Luxury scarves
-- Intricate colorwork
-- Heirloom baby items 
+- Intricate lace shawls
+- Lightweight summer tops
+- Baby items and christening gowns
+- Fine gauge accessories
+- Detailed colorwork and Fair Isle 

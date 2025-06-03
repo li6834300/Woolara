@@ -1,27 +1,27 @@
 ---
+layout: yarn
 title: "Everyday Luxury"
 ply: "26-ply"
-description: "A classic, all-purpose yarn that's perfect for garments and accessories. The ideal balance of warmth, drape, and versatility for all your knitting needs."
-image: "/assets/images/yarn detail/JPEG image-4C05-941A-84-0.jpeg"
+description: "A classic, all-purpose yarn that's perfect for garments and accessories. Strikes the perfect balance between softness and durability."
+image: "/assets/images/yarn detail/JPEG image-4C05-941A-84-01.png"
 weight: "50g"
 length: "200m"
 fiber: "100% Inner Mongolian Cashmere"
 care: "Hand wash cold, lay flat to dry"
 ---
 
-## The Perfect All-Purpose Yarn
+## Classic Versatility
 
-Everyday Luxury 26-ply strikes the perfect balance between substance and elegance. This versatile yarn is ideal for creating beautiful garments that you'll reach for again and again, combining the luxury of cashmere with practical wearability.
+Our Everyday Luxury 26-ply yarn represents the perfect balance of softness, strength, and workability. This medium-weight yarn is ideal for both novice and experienced crafters looking to create beautiful, lasting pieces.
 
-## Exceptional Drape and Warmth
+## Perfect Balance
 
-The 26-ply construction provides excellent stitch definition while maintaining the natural drape that makes cashmere so desirable. Whether you're knitting a delicate lace pattern or a classic stockinette sweater, this yarn performs beautifully.
+With its medium weight and exceptional drape, this yarn works beautifully for a wide range of projects. The 26-ply construction provides excellent stitch definition while maintaining the luxurious softness cashmere is known for.
 
-## Ideal Projects
+## Ideal Applications
 
-- Classic sweaters and pullovers
-- Elegant cardigans
-- Lightweight scarves and shawls
-- Baby items and children's wear
-- Sophisticated accessories
-- Layering pieces 
+- Sweaters and cardigans
+- Scarves and shawls
+- Baby items
+- Accessories and home goods
+- Detailed colorwork projects 

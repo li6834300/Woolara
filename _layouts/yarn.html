@@ -4,57 +4,168 @@ layout: default
 
 <section class="section">
     <div class="container">
-        <div class="yarn-detail">
-            <div class="yarn-detail-image">
-                <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        <div class="yarn-detail-header">
+            <h1>{{ page.title }}</h1>
+            <p class="ply-info">{{ page.ply }}</p>
+            <p class="yarn-description">{{ page.description }}</p>
+        </div>
+        
+        <div class="yarn-detail-content">
+            <!-- Main Display Area -->
+            <div class="yarn-main-display">
+                <div class="main-image-container">
+                    <img id="mainYarnImage" src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="main-yarn-image">
+                </div>
             </div>
             
-            <div class="yarn-detail-info">
-                <h1>{{ page.title }}</h1>
-                <p class="ply">{{ page.ply }}</p>
-                
-                <p>{{ page.description }}</p>
-                
-                <div class="yarn-specs">
-                    <h3>Specifications</h3>
-                    {% if page.weight %}
-                    <div class="spec-item">
-                        <span>Weight:</span>
-                        <span>{{ page.weight }}</span>
-                    </div>
-                    {% endif %}
-                    {% if page.length %}
-                    <div class="spec-item">
-                        <span>Length:</span>
-                        <span>{{ page.length }}</span>
-                    </div>
-                    {% endif %}
-                    {% if page.fiber %}
-                    <div class="spec-item">
-                        <span>Fiber:</span>
-                        <span>{{ page.fiber }}</span>
-                    </div>
-                    {% endif %}
-                    {% if page.care %}
-                    <div class="spec-item">
-                        <span>Care:</span>
-                        <span>{{ page.care }}</span>
-                    </div>
-                    {% endif %}
-                </div>
-                
-                <div class="content">
-                    {{ content }}
-                </div>
-                
-                <div style="margin-top: 40px;">
-                    <a href="https://your-purchasing-link.com" class="btn btn-secondary" style="font-size: 1.2rem; padding: 20px 40px;">Purchase This Yarn</a>
-                </div>
-                
-                <div style="margin-top: 20px;">
-                    <a href="{{ '/yarn-collection/' | relative_url }}" class="btn btn-primary">← Back to Collection</a>
+            <!-- Color Selection Matrix -->
+            <div class="yarn-color-matrix">
+                <h3>Available Colors</h3>
+                <div class="color-grid" id="colorGrid">
+                    <!-- Colors will be populated based on yarn type -->
                 </div>
             </div>
         </div>
+        
+        <!-- Yarn Specifications -->
+        <div class="yarn-specifications">
+            <div class="yarn-specs">
+                <h3>Specifications</h3>
+                <div class="spec-item">
+                    <span class="spec-label">Weight:</span>
+                    <span class="spec-value">{{ page.weight }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Length:</span>
+                    <span class="spec-value">{{ page.length }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Fiber:</span>
+                    <span class="spec-value">{{ page.fiber }}</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-label">Care:</span>
+                    <span class="spec-value">{{ page.care }}</span>
+                </div>
+            </div>
+            
+            <div class="yarn-content">
+                {{ content }}
+            </div>
+        </div>
+        
+        <!-- Back to Collection -->
+        <div class="back-link">
+            <a href="{{ '/yarn-collection/' | relative_url }}" class="btn btn-secondary">← Back to Collection</a>
+        </div>
     </div>
-</section> 
+</section>
+
+<script>
+// Color matrix configuration based on yarn types
+const yarnColorMaps = {
+    'soft-bold': {
+        prefix: '4173-A3C0-E3',
+        colors: [
+            { name: 'Natural', file: '0' },
+            { name: 'Cream', file: '1' },
+            { name: 'Light Beige', file: '3' },
+            { name: 'Warm Beige', file: '4' },
+            { name: 'Soft Taupe', file: '5' },
+            { name: 'Medium Taupe', file: '6' },
+            { name: 'Rich Brown', file: '7' },
+            { name: 'Deep Brown', file: '8' },
+            { name: 'Charcoal', file: '9' },
+            { name: 'Stone Grey', file: '10' },
+            { name: 'Light Grey', file: '11' },
+            { name: 'Pearl Grey', file: '12' },
+            { name: 'Silver', file: '13' },
+            { name: 'Platinum', file: '14' },
+            { name: 'Snow White', file: '15' }
+        ]
+    },
+    'everyday-luxury': {
+        prefix: '4C05-941A-84',
+        colors: [
+            { name: 'Natural', file: '01' },
+            { name: 'Ivory', file: '02' },
+            { name: 'Vanilla', file: '03' },
+            { name: 'Camel', file: '04' },
+            { name: 'Biscuit', file: '05' },
+            { name: 'Mushroom', file: '06' },
+            { name: 'Cocoa', file: '08' },
+            { name: 'Mocha', file: '09' },
+            { name: 'Espresso', file: '10' },
+            { name: 'Dove Grey', file: '11' },
+            { name: 'Storm Grey', file: '12' },
+            { name: 'Charcoal', file: '13' },
+            { name: 'Slate', file: '14' },
+            { name: 'Ash', file: '15' },
+            { name: 'Pure White', file: '16' }
+        ]
+    },
+    'feather-light': {
+        prefix: '4930-8DE4-28',
+        colors: [
+            { name: 'Natural', file: '001' },
+            { name: 'Cream', file: '002' },
+            { name: 'Butter', file: '003' },
+            { name: 'Honey', file: '004' },
+            { name: 'Amber', file: '005' },
+            { name: 'Cognac', file: '006' },
+            { name: 'Caramel', file: '007' },
+            { name: 'Bronze', file: '008' }
+        ]
+    }
+};
+
+// Get current yarn type from page title or URL
+function getCurrentYarnType() {
+    const path = window.location.pathname;
+    if (path.includes('soft-bold')) return 'soft-bold';
+    if (path.includes('everyday-luxury')) return 'everyday-luxury';
+    if (path.includes('feather-light')) return 'feather-light';
+    return 'soft-bold'; // default
+}
+
+// Populate color matrix
+function populateColorMatrix() {
+    const currentYarn = getCurrentYarnType();
+    const colorData = yarnColorMaps[currentYarn];
+    
+    if (!colorData) return;
+    
+    const colorGrid = document.getElementById('colorGrid');
+    colorGrid.innerHTML = '';
+    
+    colorData.colors.forEach((color, index) => {
+        const colorItem = document.createElement('div');
+        colorItem.className = 'color-item';
+        if (index === 0) colorItem.classList.add('active');
+        
+        const imageExt = color.file.includes('.') ? '' : (currentYarn === 'soft-bold' ? '.jpg' : '.png');
+        const imagePath = `/Woolara/assets/images/yarn detail/JPEG image-${colorData.prefix}-${color.file}${imageExt}`;
+        
+        colorItem.innerHTML = `
+            <img src="${imagePath}" alt="${color.name}" loading="lazy">
+            <span class="color-name">${color.name}</span>
+        `;
+        
+        colorItem.onclick = () => selectColor(imagePath, colorItem);
+        colorGrid.appendChild(colorItem);
+    });
+}
+
+// Select color function
+function selectColor(imagePath, element) {
+    // Update main image
+    document.getElementById('mainYarnImage').src = imagePath;
+    
+    // Update active state
+    document.querySelectorAll('.color-item').forEach(item => item.classList.remove('active'));
+    element.classList.add('active');
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', populateColorMatrix);
+</script> 
