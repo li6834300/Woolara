@@ -62,63 +62,70 @@ layout: default
 </section>
 
 <script>
-// Complete image matrix configuration - all available images
-const yarnColorMaps = {
-    'soft-bold': {
-        prefix: '4173-A3C0-E3',
-        images: [
-            '0.jpg', '1.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg',
-            '7.png', '8.png', '9.png', '10.png', '11.png', '12.png', 
-            '13.png', '14.png', '15.png'
-        ]
-    },
-    'everyday-luxury': {
-        prefix: '4C05-941A-84',
-        images: [
-            '01.png', '02.png', '03.png', '04.png', '05.png', '06.png',
-            '08.png', '09.png', '10.png', '11.png', '12.png', '13.png',
-            '14.png', '15.png', '16.png'
-        ]
-    },
-    'feather-light': {
-        prefix: '4930-8DE4-28',
-        images: [
-            '001.png', '002.png', '003.png', '004.png', '005.png', 
-            '006.png', '007.png', '008.png'
-        ]
-    },
-    'supreme-edition': {
-        prefix: '4AA1-B4A5-B6',
-        images: ['0.jpeg']
-    }
-};
+// Complete collection of ALL available yarn images - shown on every detail page
+const allYarnImages = [
+    // 4173-A3C0-E3 series (A Soft & Bold)
+    'JPEG image-4173-A3C0-E3-0.jpg',
+    'JPEG image-4173-A3C0-E3-0.jpeg',
+    'JPEG image-4173-A3C0-E3-1.jpg',
+    'JPEG image-4173-A3C0-E3-3.jpg',
+    'JPEG image-4173-A3C0-E3-4.jpg',
+    'JPEG image-4173-A3C0-E3-5.jpg',
+    'JPEG image-4173-A3C0-E3-6.jpg',
+    'JPEG image-4173-A3C0-E3-7.png',
+    'JPEG image-4173-A3C0-E3-8.png',
+    'JPEG image-4173-A3C0-E3-9.png',
+    'JPEG image-4173-A3C0-E3-10.png',
+    'JPEG image-4173-A3C0-E3-11.png',
+    'JPEG image-4173-A3C0-E3-12.png',
+    'JPEG image-4173-A3C0-E3-13.png',
+    'JPEG image-4173-A3C0-E3-14.png',
+    'JPEG image-4173-A3C0-E3-15.png',
+    
+    // 4C05-941A-84 series (Everyday Luxury)
+    'JPEG image-4C05-941A-84-0.jpeg',
+    'JPEG image-4C05-941A-84-01.png',
+    'JPEG image-4C05-941A-84-02.png',
+    'JPEG image-4C05-941A-84-03.png',
+    'JPEG image-4C05-941A-84-04.png',
+    'JPEG image-4C05-941A-84-05.png',
+    'JPEG image-4C05-941A-84-06.png',
+    'JPEG image-4C05-941A-84-08.png',
+    'JPEG image-4C05-941A-84-09.png',
+    'JPEG image-4C05-941A-84-10.png',
+    'JPEG image-4C05-941A-84-11.png',
+    'JPEG image-4C05-941A-84-12.png',
+    'JPEG image-4C05-941A-84-13.png',
+    'JPEG image-4C05-941A-84-14.png',
+    'JPEG image-4C05-941A-84-15.png',
+    'JPEG image-4C05-941A-84-16.png',
+    
+    // 4930-8DE4-28 series (Feather Light)
+    'JPEG image-4930-8DE4-28-0.jpeg',
+    'JPEG image-4930-8DE4-28-001.png',
+    'JPEG image-4930-8DE4-28-002.png',
+    'JPEG image-4930-8DE4-28-003.png',
+    'JPEG image-4930-8DE4-28-004.png',
+    'JPEG image-4930-8DE4-28-005.png',
+    'JPEG image-4930-8DE4-28-006.png',
+    'JPEG image-4930-8DE4-28-007.png',
+    'JPEG image-4930-8DE4-28-008.png',
+    
+    // 4AA1-B4A5-B6 series (Supreme Edition)
+    'JPEG image-4AA1-B4A5-B6-0.jpeg'
+];
 
-// Get current yarn type from page title or URL
-function getCurrentYarnType() {
-    const path = window.location.pathname;
-    if (path.includes('soft-bold')) return 'soft-bold';
-    if (path.includes('everyday-luxury')) return 'everyday-luxury';
-    if (path.includes('feather-light')) return 'feather-light';
-    if (path.includes('supreme-edition')) return 'supreme-edition';
-    return 'soft-bold'; // default
-}
-
-// Populate color matrix
+// Populate color matrix with ALL images
 function populateColorMatrix() {
-    const currentYarn = getCurrentYarnType();
-    const imageData = yarnColorMaps[currentYarn];
-    
-    if (!imageData) return;
-    
     const colorGrid = document.getElementById('colorGrid');
     colorGrid.innerHTML = '';
     
-    imageData.images.forEach((imageFile, index) => {
+    allYarnImages.forEach((imageFile, index) => {
         const colorItem = document.createElement('div');
         colorItem.className = 'color-item';
         if (index === 0) colorItem.classList.add('active');
         
-        const imagePath = `/Woolara/assets/images/yarn detail/JPEG image-${imageData.prefix}-${imageFile}`;
+        const imagePath = `/Woolara/assets/images/yarn detail/${imageFile}`;
         
         colorItem.innerHTML = `
             <img src="${imagePath}" alt="Color option ${index + 1}" loading="lazy">
