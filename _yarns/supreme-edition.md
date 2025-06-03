@@ -2,7 +2,7 @@
 title: "Supreme Edition"
 ply: "100-ply"
 description: "The ultimate in cashmere luxury, perfect for the finest and most sophisticated projects. Our premium offering for discerning crafters who demand the very best."
-image: "/assets/images/supreme-edition-yarn-detail.jpg"
+image: "/assets/images/yarn detail/JPEG image-4AA1-B4A5-B6-0.jpeg"
 weight: "20g"
 length: "400m"
 fiber: "100% Premium Inner Mongolian Cashmere"

@@ -69,7 +69,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/images/hero-bg.jpg');
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/images/home page pic/hero-bg.png');
   background-size: cover;
   background-position: center;
   height: 80vh;
@@ -292,7 +292,7 @@ nav a:hover {
 
 /* Story Page */
 .story-hero {
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/images/cashmere-hero.jpg');
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/images/our cashmere/A_photograph_captures_a_Mongolian_herder_overseein.png');
   background-size: cover;
   background-position: center;
   height: 60vh;
@@ -311,6 +311,12 @@ nav a:hover {
   margin-bottom: 60px;
 }
 
+.story-content.single-column {
+  grid-template-columns: 1fr;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .story-text h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -324,6 +330,10 @@ nav a:hover {
   margin-bottom: 20px;
 }
 
+.story-text.center-text {
+  text-align: center;
+}
+
 .story-image {
   text-align: center;
 }
@@ -335,14 +345,69 @@ nav a:hover {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+/* Yarn Specs List */
+.yarn-specs-list {
+  margin-top: 30px;
+}
+
+.spec-card {
+  background-color: var(--cashmere-beige);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border-left: 4px solid var(--forest-green);
+}
+
+.spec-card h4 {
+  font-size: 1.3rem;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+}
+
+.spec-card p {
+  color: var(--olive-gray);
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+/* Values List */
+.values-list {
+  margin: 30px 0;
+}
+
+.value-item {
+  margin-bottom: 25px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--earth-taupe);
+}
+
+.value-item:last-child {
+  border-bottom: none;
+}
+
+.value-item h4 {
+  font-size: 1.3rem;
+  color: var(--charcoal);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.value-item p {
+  color: var(--olive-gray);
+  margin-bottom: 0;
+}
+
 .map-container {
   text-align: center;
   margin: 40px 0;
 }
 
 .map-placeholder {
-  width: 300px;
-  height: 200px;
+  width: 100%;
+  max-width: 500px;
+  height: 250px;
   background-color: var(--olive-gray);
   border-radius: 10px;
   margin: 0 auto;
@@ -356,8 +421,9 @@ nav a:hover {
 .certifications {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .cert-badge {
@@ -367,6 +433,7 @@ nav a:hover {
   border: 2px solid var(--olive-gray);
   font-weight: bold;
   color: var(--charcoal);
+  white-space: nowrap;
 }
 
 /* Contact Page */
@@ -582,6 +649,27 @@ footer {
   .story-content {
     grid-template-columns: 1fr;
     gap: 40px;
+  }
+  
+  .story-text h2 {
+    font-size: 2rem;
+  }
+  
+  .spec-card h4 {
+    font-size: 1.1rem;
+  }
+  
+  .value-item h4 {
+    font-size: 1.1rem;
+  }
+  
+  .certifications {
+    gap: 10px;
+  }
+  
+  .cert-badge {
+    padding: 8px 15px;
+    font-size: 0.9rem;
   }
   
   .contact-section {

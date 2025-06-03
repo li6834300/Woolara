@@ -2,7 +2,7 @@
 title: "Everyday Luxury"
 ply: "26-ply"
 description: "A classic, all-purpose yarn that's perfect for garments and accessories. The ideal balance of warmth, drape, and versatility for all your knitting needs."
-image: "/assets/images/everyday-luxury-yarn-detail.jpg"
+image: "/assets/images/yarn detail/JPEG image-4C05-941A-84-0.jpeg"
 weight: "50g"
 length: "200m"
 fiber: "100% Inner Mongolian Cashmere"

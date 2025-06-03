@@ -2,7 +2,7 @@
 title: "Feather Light"
 ply: "68-ply"
 description: "A fine, lightweight yarn that's great for delicate projects and summer garments. Perfect for creating elegant, breathable pieces with exceptional drape."
-image: "/assets/images/feather-light-yarn-detail.jpg"
+image: "/assets/images/yarn detail/JPEG image-4930-8DE4-28-0.jpeg"
 weight: "25g"
 length: "300m"
 fiber: "100% Inner Mongolian Cashmere"
