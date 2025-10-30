@@ -90,7 +90,7 @@ description: Luxuriously soft cashmere yarn from Inner Mongolia - Nature in Ever
                 <span class="progress-percentage" id="progressPercentage">0%</span>
             </div>
         </div>
-        <div class="progress-stats" id="progressStats" style="margin-top: 15px; color: rgba(255,255,255,0.9); font-size: 1.1rem;"></div>
+        <div class="progress-stats" id="progressStats" style="margin-top: 15px; color: rgba(255,255,255,0.7); font-size: 0.95rem; font-style: italic;"></div>
         <a href="https://www.ulule.com/woolara-cashmere-handmade/" class="btn btn-primary" style="margin-top: 30px;">Back Woolara</a>
     </div>
 </section>
@@ -130,16 +130,13 @@ async function updateCrowdfundingProgress() {
             progressPercentage.textContent = percent + '%';
         }
 
-        if (progressStats) {
-            progressStats.innerHTML = `<strong>${formatter.format(amountRaised)}</strong> raised of <strong>${formatter.format(goal)}</strong> goal &bull; <strong>${supportersCount}</strong> backers`;
+        // Only show stats if there's actual progress or backers
+        if (progressStats && (amountRaised > 0 || supportersCount > 0)) {
+            progressStats.innerHTML = `${formatter.format(amountRaised)} raised of ${formatter.format(goal)} goal &bull; ${supportersCount} backers`;
         }
     } catch (error) {
-        console.error('Error fetching campaign data:', error);
-        // Fallback to default values if API fails
-        const progressStats = document.getElementById('progressStats');
-        if (progressStats) {
-            progressStats.textContent = 'Visit campaign for live details';
-        }
+        // Silently fail - don't show error message to users
+        // The percentage will remain at 0% which is fine
     }
 }
 
