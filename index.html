@@ -11,7 +11,7 @@ description: Luxuriously soft cashmere yarn from Inner Mongolia - Nature in Ever
         <p>Luxuriously soft cashmere yarn from Inner Mongolia</p>
         <div class="cta-buttons">
             <a href="{{ '/yarn-collection/' | relative_url }}" class="btn btn-primary">Explore Yarn</a>
-            <a href="{{ '/coming-soon/' | relative_url }}" class="btn btn-secondary">Join Crowdfunding</a>
+            <a href="https://www.ulule.com/woolara-cashmere-handmade/" class="btn btn-secondary">Join Crowdfunding</a>
         </div>
     </div>
 </section>
@@ -86,9 +86,66 @@ description: Luxuriously soft cashmere yarn from Inner Mongolia - Nature in Ever
     <div class="container">
         <h2>Join Crowdfunding Today</h2>
         <div class="progress-bar">
-            <div class="progress-fill"></div>
+            <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="progress-text">51%</div>
+        <div class="progress-text" id="progressText">Loading...</div>
+        <div class="progress-stats" id="progressStats" style="margin-top: 10px; color: rgba(255,255,255,0.9); font-size: 1.1rem;"></div>
         <a href="https://www.ulule.com/woolara-cashmere-handmade/" class="btn btn-primary" style="margin-top: 30px;">Back Woolara</a>
     </div>
-</section> 
+</section>
+
+<script>
+// Fetch Ulule campaign data dynamically
+async function updateCrowdfundingProgress() {
+    try {
+        const response = await fetch('https://api.ulule.com/v1/projects/219469');
+        const data = await response.json();
+
+        // Extract funding data
+        const percent = Math.round(data.percent || 0);
+        const amountRaised = data.amount_raised || 0;
+        const goal = data.goal || 7000;
+        const supportersCount = data.supporters_count || 0;
+        const currency = data.currency || 'EUR';
+
+        // Format currency
+        const formatter = new Intl.NumberFormat('en-EU', {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        });
+
+        // Update progress bar
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const progressStats = document.getElementById('progressStats');
+
+        if (progressFill) {
+            progressFill.style.width = percent + '%';
+        }
+
+        if (progressText) {
+            progressText.textContent = percent + '%';
+        }
+
+        if (progressStats) {
+            progressStats.innerHTML = `<strong>${formatter.format(amountRaised)}</strong> raised of <strong>${formatter.format(goal)}</strong> goal &bull; <strong>${supportersCount}</strong> backers`;
+        }
+    } catch (error) {
+        console.error('Error fetching campaign data:', error);
+        // Fallback to default values if API fails
+        const progressText = document.getElementById('progressText');
+        if (progressText) {
+            progressText.textContent = 'Visit campaign for details';
+        }
+    }
+}
+
+// Update progress when page loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateCrowdfundingProgress);
+} else {
+    updateCrowdfundingProgress();
+}
+</script> 
