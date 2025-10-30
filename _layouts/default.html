@@ -6,6 +6,7 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/language-switcher.css' | relative_url }}">
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 </head>
 <body>
@@ -13,14 +14,48 @@
         <div class="container">
             <div class="header-content">
                 <a href="{{ '/' | relative_url }}" class="logo">Woolara</a>
-                <nav>
-                    <ul>
-                        <li><a href="{{ '/' | relative_url }}">HOME</a></li>
-                        <li><a href="{{ '/yarn-collection/' | relative_url }}">YARN</a></li>
-                        <li><a href="{{ '/story/' | relative_url }}">STORY</a></li>
-                        <li><a href="{{ '/contact/' | relative_url }}">CONTACT</a></li>
-                    </ul>
-                </nav>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <nav>
+                        <ul>
+                            <li><a href="{{ '/' | relative_url }}" data-i18n="nav.home">HOME</a></li>
+                            <li><a href="{{ '/yarn-collection/' | relative_url }}" data-i18n="nav.yarn">YARN</a></li>
+                            <li><a href="{{ '/story/' | relative_url }}" data-i18n="nav.story">STORY</a></li>
+                            <li><a href="{{ '/contact/' | relative_url }}" data-i18n="nav.contact">CONTACT</a></li>
+                        </ul>
+                    </nav>
+                    <div class="language-switcher" id="languageSwitcher">
+                        <div class="lang-current" id="langToggle">
+                            <span id="currentLang">EN</span>
+                        </div>
+                        <div class="lang-dropdown">
+                            <div class="lang-option" data-lang="en" onclick="setLanguage('en')">
+                                <span class="flag">🇬🇧</span>
+                                <span class="lang-name">English</span>
+                                <span class="lang-code">EN</span>
+                            </div>
+                            <div class="lang-option" data-lang="nl" onclick="setLanguage('nl')">
+                                <span class="flag">🇳🇱</span>
+                                <span class="lang-name">Nederlands</span>
+                                <span class="lang-code">NL</span>
+                            </div>
+                            <div class="lang-option" data-lang="de" onclick="setLanguage('de')">
+                                <span class="flag">🇩🇪</span>
+                                <span class="lang-name">Deutsch</span>
+                                <span class="lang-code">DE</span>
+                            </div>
+                            <div class="lang-option" data-lang="fr" onclick="setLanguage('fr')">
+                                <span class="flag">🇫🇷</span>
+                                <span class="lang-name">Français</span>
+                                <span class="lang-code">FR</span>
+                            </div>
+                            <div class="lang-option" data-lang="es" onclick="setLanguage('es')">
+                                <span class="flag">🇪🇸</span>
+                                <span class="lang-name">Español</span>
+                                <span class="lang-code">ES</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -31,8 +66,26 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Woolara. All rights reserved. | Luxuriously soft cashmere yarn from Inner Mongolia</p>
+            <p>&copy; 2025 Woolara. <span data-i18n="footer.rights">All rights reserved.</span> | <span data-i18n="footer.tagline">Luxuriously soft cashmere yarn from Inner Mongolia</span></p>
         </div>
     </footer>
+
+    <!-- Language Switcher Script -->
+    <script src="{{ '/assets/js/translations.js' | relative_url }}"></script>
+    <script>
+        // Toggle language dropdown
+        document.getElementById('langToggle').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('languageSwitcher').classList.toggle('open');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const switcher = document.getElementById('languageSwitcher');
+            if (!switcher.contains(e.target)) {
+                switcher.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 </html> 

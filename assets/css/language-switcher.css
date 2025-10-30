@@ -1,0 +1,118 @@
+/* Language Switcher Styles */
+.language-switcher {
+  position: relative;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.lang-current {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.lang-current:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.lang-current::after {
+  content: '▼';
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.language-switcher.open .lang-current::after {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.language-switcher.open .lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.lang-option:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.lang-option:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.lang-option:hover {
+  background-color: var(--light-taupe);
+}
+
+.lang-option.active {
+  background-color: var(--earth-taupe);
+  color: white;
+  font-weight: 500;
+}
+
+.lang-option .flag {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+.lang-option .lang-name {
+  flex: 1;
+}
+
+.lang-option .lang-code {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .language-switcher {
+    margin-left: 15px;
+  }
+
+  .lang-current {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+
+  .lang-dropdown {
+    right: -10px;
+  }
+}
