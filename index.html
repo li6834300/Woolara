@@ -99,7 +99,8 @@ description: Luxuriously soft cashmere yarn from Inner Mongolia - Nature in Ever
 // Fetch Ulule campaign data dynamically
 async function updateCrowdfundingProgress() {
     try {
-        const response = await fetch('https://api.ulule.com/v1/projects/219469');
+        // Use CORS proxy to bypass CORS restrictions
+        const response = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent('https://api.ulule.com/v1/projects/219469'));
         const data = await response.json();
 
         // Extract funding data
