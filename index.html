@@ -86,10 +86,11 @@ description: Luxuriously soft cashmere yarn from Inner Mongolia - Nature in Ever
     <div class="container">
         <h2>Join Crowdfunding Today</h2>
         <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-fill" id="progressFill">
+                <span class="progress-percentage" id="progressPercentage">0%</span>
+            </div>
         </div>
-        <div class="progress-text" id="progressText">Loading...</div>
-        <div class="progress-stats" id="progressStats" style="margin-top: 10px; color: rgba(255,255,255,0.9); font-size: 1.1rem;"></div>
+        <div class="progress-stats" id="progressStats" style="margin-top: 15px; color: rgba(255,255,255,0.9); font-size: 1.1rem;"></div>
         <a href="https://www.ulule.com/woolara-cashmere-handmade/" class="btn btn-primary" style="margin-top: 30px;">Back Woolara</a>
     </div>
 </section>
@@ -118,15 +119,15 @@ async function updateCrowdfundingProgress() {
 
         // Update progress bar
         const progressFill = document.getElementById('progressFill');
-        const progressText = document.getElementById('progressText');
+        const progressPercentage = document.getElementById('progressPercentage');
         const progressStats = document.getElementById('progressStats');
 
         if (progressFill) {
             progressFill.style.width = percent + '%';
         }
 
-        if (progressText) {
-            progressText.textContent = percent + '%';
+        if (progressPercentage) {
+            progressPercentage.textContent = percent + '%';
         }
 
         if (progressStats) {
@@ -135,9 +136,9 @@ async function updateCrowdfundingProgress() {
     } catch (error) {
         console.error('Error fetching campaign data:', error);
         // Fallback to default values if API fails
-        const progressText = document.getElementById('progressText');
-        if (progressText) {
-            progressText.textContent = 'Visit campaign for details';
+        const progressStats = document.getElementById('progressStats');
+        if (progressStats) {
+            progressStats.textContent = 'Visit campaign for live details';
         }
     }
 }
