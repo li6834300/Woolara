@@ -404,6 +404,12 @@ function setLanguage(lang) {
 
   // Update language switcher UI
   updateLanguageSwitcherUI(lang);
+
+  // Close dropdown after selection
+  const switcher = document.getElementById('languageSwitcher');
+  if (switcher) {
+    switcher.classList.remove('open');
+  }
 }
 
 function updateLanguageSwitcherUI(lang) {
